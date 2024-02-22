@@ -12,11 +12,11 @@ phases:
   pre_build:
     commands:
       - echo "Installing dependencies..."
-      - pip install -r simple-python-app-cicd/requirements.txt
+      - pip install -r sample-aws-cicd-app/requirements.txt
   build:
     commands:
       - echo "Running tests..."
-      - cd simple-python-app-cicd
+      - cd sample-aws-cicd-app
       - echo "Building Docker image..."
       - echo "$DOCKER_REGISTRY_PASSWORD" | docker login -u "$DOCKER_REGISTRY_USERNAME" --password-stdin "$DOCKER_REGISTRY_URL"
       - docker build -t "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/CICD-AWS-DEMO".
@@ -27,4 +27,4 @@ phases:
 artifacts:
   files:
     - '**/*'
-  base-directory: ./simple-python-app-cicd
+  base-directory: ./sample-aws-cicd-app
