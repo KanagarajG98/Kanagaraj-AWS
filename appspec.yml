@@ -1,16 +1,21 @@
 version: 0.0
 os: linux
 
+files:
+  - source: /
+    destination: /path/to/your/application
+
 hooks:
   BeforeInstall:
     - location: scripts/set_permissions.sh
-      timeout: 300
-      runas: root
-  ApplicationStop:
-    - location: scripts/stop_container.sh
       timeout: 300
       runas: root
   AfterInstall:
     - location: scripts/start_container.sh
       timeout: 300
       runas: root
+  ApplicationStop:
+    - location: scripts/stop_container.sh
+      timeout: 300
+      runas: root
+
