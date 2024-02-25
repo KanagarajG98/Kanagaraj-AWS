@@ -1,10 +1,6 @@
 version: 0.0
 os: linux
 
-files:
-  - source: /
-    destination: /path/to/your/application
-
 hooks:
   BeforeInstall:
     - location: scripts/set_permissions.sh
